@@ -62,6 +62,13 @@
           let cards = data.repeat(4).split('\n');
           shuffle(cards);
           document.getElementById("list").innerHTML = cards.slice(0, 40)
+            .sort((a, b) => {
+              let an = Number(a);
+              let bn = Number(b);
+              if (an > bn) return 1;
+              if (an < bn) return -1;
+              return 0;
+            })
             .map(id => '<img src="https://dmps.takaratomy.co.jp/card/img/card/' + id + '.png" width="180rem">')
             .join('\n');
         })
