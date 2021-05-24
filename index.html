@@ -2,15 +2,51 @@
   <head>
     <meta charset="utf-8">
     <title>らんだむにでっきつくるやつ</title>
+    <style>
+      @media (min-width:0px) {
+        html { font-size: 100%; }
+      }
+
+      @media (min-width:480px) {
+        html { font-size: 80%; }
+      }
+
+      @media (min-width:960px) {
+        html { font-size: 80%; }
+      }
+
+      img {
+        width: 20rem;
+      }
+
+      button {
+        background-color: #00a0e5;
+        font-size: 2rem;
+        color: white;
+        border-style: none;
+        border-radius: 5px;
+        box-shadow: 2px 2px 2px dimgrey;
+        padding: 5px;
+        margin: 5px;
+      }
+
+      button:hover {
+        background-color: #32c1ff;
+      }
+
+      button:active {
+        background-color: #7fd8ff;
+      }
+    </style>
  </head>
   <body>
     <br>
-    <div style="text-align: center">
+    <div style="text-align: center;">
       <button onclick="generate()">デッキ作成</button>
     </div>
     <br>
     <br>
-    <div id="list"></div>
+    <ul id="list"></div>
   </body>
   <script>
     function shuffle(arr){
@@ -26,7 +62,7 @@
           let cards = data.repeat(4).split('\n');
           shuffle(cards);
           document.getElementById("list").innerHTML = cards.slice(0, 40)
-            .map(id => '<img src="https://dmps.takaratomy.co.jp/card/img/card/' + id + '.png" width="180">')
+            .map(id => '<img src="https://dmps.takaratomy.co.jp/card/img/card/' + id + '.png" width="180rem">')
             .join('\n');
         })
     }
